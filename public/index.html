@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Video Downloader</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #181818;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #242424;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        input[type="text"]::placeholder {
+            color: #888;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 10px #ff0050;
+            background-color: #2a2a2a;
+        }
+
+        /* Buttons */
+        button {
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff0050, #ff72a0);
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Status Box */
+        #status {
+            text-align: center;
+            font-size: 14px;
+            color: #ff72a0;
+            min-height: 20px;
+        }
+
+        /* Video Result Card */
+        #result {
+            margin-top: 25px;
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        #thumb {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        #title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Format Buttons */
+        .formats button {
+            background: #ff0050;
+            margin: 5px;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .formats button:hover {
+            background: #ff72a0;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TikTok Video Downloader</h1>
+        <form id="form">
+            <input type="text" id="url" placeholder="Paste TikTok URL here">
+            <button type="submit">Download</button>
+        </form>
+        <div id="status"></div>
+        <div id="result">
+            <img id="thumb" src="" alt="Video Thumbnail">
+            <div id="title"></div>
+            <div class="formats"></div>
+        </div>
+    </div>
+</body>
+</html>
