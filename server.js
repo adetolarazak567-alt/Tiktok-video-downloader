@@ -1,35 +1,28 @@
-import express from "express";
-import cors from "cors";
-import { getVideoMeta } from "downloadtiktok";
-import path from "path";
-import { fileURLToPath } from "url";
-
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios'); // for fetching TikTok video data
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Setup __dirname for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.post('/download', async (req, res) => {
+    const { url } = req.body;
+    if (!url) return res.status(400).json({ error: 'No URL provided' });
 
-// Serve frontend files
-app.use(express.static(path.join(__dirname, "public")));
+    try {
+        // TikTok video fetch logic
+        // Example using a public TikTok downloader API
+        const apiResponse = await axios.get(`https://api.tiktokdownloaderapi.com/?url=${encodeURIComponent(url)}`);
+        const videoUrl = apiResponse.data.video || null;
 
-// API endpoint to download TikTok video
-app.post("/api/download-tiktok", async (req, res) => {
-  const { url } = req.body;
-  if (!url) return res.status(400).json({ error: "No URL provided" });
-
-  try {
-    const videoMeta = await getVideoMeta(url);
-    const videoUrl = videoMeta.collector[0].videoUrl;
-    res.json({ videoUrl });
-  } catch (err) {
-    res.status(500).json({ error: "Failed to fetch video", details: err.message });
-  }
+        if (!videoUrl) return res.status(500).json({ error: 'Video not found' });
+        res.json({ videoUrl });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch video' });
+    }
 });
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

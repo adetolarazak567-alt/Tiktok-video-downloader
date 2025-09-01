@@ -25,7 +25,7 @@ A simple TikTok video downloader built with HTML, CSS, and JavaScript. Designed 
 
 ## Screenshot
 
-![TikTok Downloader Screenshot](screenshot.png)
+![TikTok-video-Downloader Screenshot](screenshot.png)
 
 > Tip: You can replace `screenshot.png` with an actual image of your app for better presentation.
 

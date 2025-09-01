@@ -13,7 +13,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .container {
     max-width: 500px;
     margin: 50px auto;
@@ -23,39 +22,32 @@ body {
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     text-align: center;
 }
-
 h1 {
     font-size: 28px;
     color: #fff;
     font-weight: bold;
     margin-bottom: 25px;
-    text-shadow: 0 0 5px indianred;
+    text-shadow: 0 0 5px red;
 }
-
 input[type="text"] {
     width: 100%;
-    padding: 14px 15px;
+    padding: 20px 10px;
     border-radius: 12px;
     border: none;
     outline: none;
     font-size: 16px;
     background-color: #242424;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     transition: 0.3s;
 }
-
-input[type="text"]::placeholder {
-    color: #888;
-}
-
+input[type="text"]::placeholder { color: #888; }
 input[type="text"]:focus {
-    box-shadow: 0 0 10px #ff0050;
+    box-shadow: 0 0 10px whitesmoke;
     background-color: #2a2a2a;
 }
-
 button {
-    padding: 15px 55px;
+    padding: 14px 50px;
     border-radius: 15px;
     border: none;
     font-size: 16px;
@@ -65,25 +57,15 @@ button {
     color: #fff;
     transition: 0.3s;
 }
-
-button:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
+button:hover { transform: translateY(-2px); opacity: 0.9; }
 #status {
     margin-top: 15px;
     font-size: 14px;
     color: #ff72a0;
     min-height: 20px;
 }
-
-/* Responsive */
 @media (max-width: 600px) {
-    .container {
-        margin: 20px;
-        padding: 20px;
-    }
+    .container { margin: 20px; padding: 20px; }
 }
 </style>
 </head>
@@ -96,7 +78,6 @@ button:hover {
 </div>
 
 <script>
-// Inline JS to send link to backend
 async function downloadVideo() {
     const url = document.getElementById('url').value.trim();
     const status = document.getElementById('status');
@@ -107,7 +88,7 @@ async function downloadVideo() {
     status.textContent = "Processing...";
 
     try {
-        const response = await fetch('https://tiktok-backend.onrender.com/download', {
+        const response = await fetch('https://YOUR_BACKEND_URL_HERE/download', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
