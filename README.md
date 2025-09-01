@@ -20,6 +20,7 @@ A simple TikTok video downloader built with HTML, CSS, and JavaScript. Designed 
 3. Click **Download**.
 4. Choose the format (if available) and your video will download.
 
+
 ---
 
 ## Screenshot

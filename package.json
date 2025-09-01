@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "downloadtiktok": "^1.0.0",
+     "downloadtiktok": "^1.0.0",
     "cors": "^2.8.5"
   }
 }
